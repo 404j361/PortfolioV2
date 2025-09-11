@@ -93,7 +93,6 @@ export default function Home() {
             <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7 }}
                 className={
                     parchmentStyle +
@@ -281,7 +280,7 @@ export default function Home() {
             <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className={parchmentStyle + " w-full max-w-4xl relative"}
                 id="skills"
@@ -482,7 +481,7 @@ export default function Home() {
             <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className={parchmentStyle + " w-full max-w-4xl relative"}
                 id="recent-projects"
@@ -726,7 +725,7 @@ export default function Home() {
             <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.7, delay: 0.35 }}
                 className={parchmentStyle + " w-full max-w-4xl relative"}
                 id="achievements"
@@ -846,10 +845,11 @@ export default function Home() {
                 </div>
             </motion.section>
 
+            {/* Work History Section */}
             <motion.section
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.4 }}
                 className={
                     parchmentStyle + " w-full max-w-4xl mx-auto relative"
