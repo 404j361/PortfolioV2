@@ -40,17 +40,17 @@ export default function Header({}: Props) {
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, type: "spring" }}
-            className="flex items-center justify-between py-4 md:py-6 px-4 md:px-8 bg-[url('https://www.transparenttextures.com/patterns/old-mathematics.png')] bg-[#f5e9c6] border-b-4 border-yellow-700 rounded-b-2xl shadow-2xl sticky top-0 z-50"
+            className="flex items-center justify-between py-4 md:py-6 px-4 md:px-8 bg-[url('https://www.transparenttextures.com/patterns/old-mathematics.png')] bg-[#998d68] border-b-4 border-yellow-700 rounded-b-2xl shadow-2xl sticky top-0 z-50"
             style={{ backgroundBlendMode: "multiply" }}
         >
             {/* Logo & Title */}
             <a href="#" className="flex items-center gap-2 md:gap-4">
                 <FaSkullCrossbones
                     size={32}
-                    className="text-yellow-700 drop-shadow-lg md:w-12 md:h-12"
+                    className="text-yellow-500 drop-shadow-lg md:w-12 md:h-12"
                 />
                 <span
-                    className="text-xl md:text-4xl font-black tracking-wide md:tracking-widest pirate-text text-[#7c4a03] drop-shadow-lg"
+                    className="text-xl md:text-4xl font-black tracking-wide md:tracking-widest pirate-text text-[#f5e9c6] drop-shadow-lg"
                     style={{ fontFamily: "Papyrus, fantasy" }}
                 >
                     <span className="hidden sm:inline">Captain Jinn</span>
