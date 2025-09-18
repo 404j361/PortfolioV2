@@ -42,7 +42,7 @@ export default function RecentProjects({ parchmentStyle }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.div
                     whileHover={{ scale: 1.03, rotateY: 5 }}
-                    className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative overflow-hidden"
+                    className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[420px]"
                     transition={{ type: "spring", stiffness: 300 }}
                 >
                     <motion.div
@@ -57,33 +57,40 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                         ⚓
                     </motion.div>
 
-                    <h3 className="text-xl font-bold text-yellow-900 mb-3">
-                        📊 Social Metrica
-                    </h3>
-                    <p className="text-sm text-yellow-800 mb-3 font-semibold">
-                        React.js • TypeScript • Ant Design • NestJS
-                    </p>
-                    <p className="text-base leading-relaxed mb-4">
-                        Captained a <strong>social analytics galleon</strong>{" "}
-                        for crews charting <strong>Facebook</strong> &{" "}
-                        <strong>TikTok</strong> seas. Form fleets, track pages,
-                        compare rivals, and spy on Ad treasures—all in one
-                        dashboard. Adventure awaits for every hungry sailor!
-                    </p>
+                    <div>
+                        <h3 className="text-xl font-bold text-yellow-900 mb-3">
+                            📊 Social Metrica
+                        </h3>
+                        <p className="text-sm text-yellow-800 mb-3 font-semibold">
+                            React.js • TypeScript • Ant Design • NestJS
+                        </p>
+                        <p className="text-base leading-relaxed mb-4">
+                            Chart yer course with{" "}
+                            <strong>Social Metrica</strong>, the mighty
+                            analytics galleon that sails beyond the horizon of
+                            ordinary tools like Social Insider. While other
+                            ships only dock at <strong>Facebook</strong> and{" "}
+                            <strong>Instagram</strong>, our crew braves the
+                            stormy seas of <strong>TikTok</strong>, bringing the
+                            fastest-growing ocean of social treasure right to
+                            yer map. ⚔️
+                        </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Fleet Management
-                        </span>
-                        <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Charts & Insights
-                        </span>
-                        <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Ad Treasure Map
-                        </span>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                                Fleet Management
+                            </span>
+                            <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                                Charts & Insights
+                            </span>
+                            <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                                Ad Treasure Map
+                            </span>
+                        </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-3 mt-4">
-                        {/* Live Demo */}
+
+                    {/* Buttons pinned at bottom */}
+                    <div className="grid grid-cols-2 gap-3 mt-auto">
                         <a
                             href="https://web.socialmetrica.com"
                             target="_blank"
@@ -93,15 +100,14 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                             🦜 Set Sail!
                         </a>
 
-                        {/* Project Details */}
-                        <LetterDialogTrigger
+                        {/* <LetterDialogTrigger
                             title="Captain's Log: Social Metrica"
                             dialog="Social Metrica"
                         >
                             <button className="flex items-center justify-center w-full gap-1 px-3 py-1.5 bg-yellow-100 bg-opacity-80 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300">
                                 🗺 Map
                             </button>
-                        </LetterDialogTrigger>
+                        </LetterDialogTrigger> */}
                     </div>
                 </motion.div>
 
@@ -122,35 +128,38 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                             ease: "easeInOut",
                         }}
                     >
-                        💰
+                        📜
                     </motion.div>
                     <h3 className="text-xl font-bold text-yellow-900 mb-3">
-                        ⚔️ JalanX Indonesia
+                        ⚔️ Alchemist Academy
                     </h3>
                     <p className="text-sm text-yellow-800 mb-3 font-semibold">
-                        SvelteKit • Laravel • WebSocket • TailwindCSS
+                        ReactJs • NestJs • WebSocket • TailwindCSS • AntDesign
                     </p>
                     <p className="text-base leading-relaxed mb-4">
-                        Set sail on the wild crypto seas! 🏴‍☠️ Managed real-time
-                        price charts, interactive dashboards, and
-                        treasure-filled portfolios, guiding modern pirates to
-                        make savvy trades without losing their gold.
+                        Set sail on the high seas of knowledge! 🏴‍☠️ Alchemist
+                        Academy is an AI-powered learning vessel where students
+                        sharpen their skills for the <strong>PTE exam</strong>.
+                        From <strong>Reading</strong> to{" "}
+                        <strong>Writing</strong> and <strong>Speaking</strong>,
+                        adventurers practice with real-time feedback, guided by
+                        clever algorithms instead of old sea maps.
                     </p>
                     <div className="flex flex-wrap gap-2">
                         <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Real-time Price Tracker
+                            Reading Quests
                         </span>
                         <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Interactive Crypto Charts
+                            Speaking Adventures
                         </span>
                         <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Portfolio Management
+                            AI Navigator Feedback
                         </span>
                     </div>
                     <div className="grid grid-cols-2 gap-3 mt-4">
                         {/* Live Demo */}
                         <a
-                            href="https://jalanconnect.id"
+                            href="https://pte.alchemistacademy.com.au/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex justify-center text-center items-center gap-1 px-3 py-1.5 bg-yellow-700 text-yellow-50 text-sm font-semibold rounded-md shadow-md hover:bg-yellow-800 hover:scale-105 transform transition-all duration-300"
@@ -159,14 +168,14 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                         </a>
 
                         {/* Project Details */}
-                        <LetterDialogTrigger
-                            title="Captain's Log: Social Metrica"
-                            dialog="Social Metrica"
+                        {/* <LetterDialogTrigger
+                            title="Captain's Log: Alchemist Academy"
+                            dialog="Alchemist Academy"
                         >
                             <button className="flex items-center justify-center w-full gap-1 px-3 py-1.5 bg-yellow-100 bg-opacity-80 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300">
                                 🗺 Map
                             </button>
-                        </LetterDialogTrigger>
+                        </LetterDialogTrigger> */}
                     </div>
                 </motion.div>
 
@@ -233,18 +242,18 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                             rel="noopener noreferrer"
                             className="flex justify-center text-center items-center gap-1 px-3 py-1.5 bg-yellow-700 text-yellow-50 text-sm font-semibold rounded-md shadow-md hover:bg-yellow-800 hover:scale-105 transform transition-all duration-300"
                         >
-                            🦜 Hoist the Sails!
+                            🦜 Set Sail!
                         </a>
 
                         {/* Project Details */}
-                        <LetterDialogTrigger
+                        {/* <LetterDialogTrigger
                             title="Captain's Log: YumYum Myanmar"
                             dialog="YumYum Myanmar Project Details"
                         >
                             <button className="flex items-center justify-center w-full gap-1 px-3 py-1.5 bg-yellow-100 bg-opacity-80 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300">
                                 🗺 Chart the Treasure
                             </button>
-                        </LetterDialogTrigger>
+                        </LetterDialogTrigger> */}
                     </div>
                 </motion.div>
 
@@ -253,46 +262,54 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                     className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative overflow-hidden"
                     transition={{ type: "spring", stiffness: 300 }}
                 >
-                    {/* Rotating Compass */}
+                    {/* Rotating Icon */}
                     <motion.div
                         className="absolute -top-2 -right-2 text-2xl"
-                        animate={{ rotate: -360 }}
+                        animate={{ rotate: 360 }}
                         transition={{
                             duration: 20,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
                         }}
                     >
-                        🧭
+                        🎁
                     </motion.div>
 
                     {/* Title */}
                     <h3 className="text-xl font-bold text-yellow-900 mb-3">
-                        🏴‍☠️ JalanX Admin Deck
+                        🏴‍☠️ Nexxus Admin Dashboard
                     </h3>
 
                     {/* Tech stack */}
                     <p className="text-sm text-yellow-800 mb-3 font-semibold">
-                        SvelteKit • Laravel • Go • UnoCss • MySQL
+                        React.js • NestJS • Prisma • TailwindCSS • MySQL
                     </p>
 
-                    {/* Description */}
+                    {/* Short Description */}
                     <p className="text-base leading-relaxed mb-4">
-                        Ahoy! The captain (admin) charts the course for crew
-                        activities—managing transactions, roles, permissions,
-                        and banking. Admins can download treasure maps (CSV
-                        reports), spy on crew movements, and keep the fleet in
-                        line—all in one place. Alas, the live admin deck cannot
-                        be shown to outsiders. ⚓
+                        Hoist the sails for{" "}
+                        <strong>Nexxus Admin Dashboard</strong>! ⚔️ This mighty
+                        deck lets captains generate{" "}
+                        <strong>QR-coded rewards</strong>
+                        for the products in Myanmar — tracking which cities
+                        receive YumYum Myanmar Noodles, ChoCho, and more, while
+                        ensuring every sailor enjoys their treasure-filled
+                        package.
                     </p>
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                         <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Social Adventures
+                            QR Rewards
                         </span>
                         <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
-                            Community Groups
+                            Campaign Management
+                        </span>
+                        <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                            City Distribution
+                        </span>
+                        <span className="bg-yellow-200 px-2 py-1 rounded text-xs font-medium">
+                            Product Tracking
                         </span>
                     </div>
 
@@ -304,14 +321,14 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                         </button>
 
                         {/* Project Details */}
-                        <LetterDialogTrigger
-                            title="Captain's Log: JalanX Admin Deck"
-                            dialog="JalanX Admin Panel"
+                        {/* <LetterDialogTrigger
+                            title="Captain's Log: Nexxus Admin Dashboard"
+                            dialog="Nexxus Admin Panel"
                         >
                             <button className="flex items-center justify-center w-full gap-1 px-3 py-1.5 bg-yellow-100 bg-opacity-80 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300">
                                 🗺 Check the Charts
                             </button>
-                        </LetterDialogTrigger>
+                        </LetterDialogTrigger> */}
                     </div>
                 </motion.div>
             </div>
