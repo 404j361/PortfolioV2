@@ -26,6 +26,7 @@ export type ProjectData = {
       appstore?: string;
       web?: string;
     };
+    disclaimer?: string;
   };
 };
 
@@ -52,6 +53,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
       demoUrl: {
         web: "https://web.socialmetrica.com",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -77,6 +80,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
       demoUrl: {
         web: "https://pte.alchemistacademy.com.au/",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -95,6 +100,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
         appstore: "https://apps.apple.com/us/app/nexxus/id1637587509",
         play: "https://play.google.com/store/apps/details?id=com.nexxus.app",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -177,6 +184,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
       demoUrl: {
         web: "https://zay.markets",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -209,6 +218,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
         play: "https://play.google.com/store/apps/details?id=com.bahozay.app&hl=en&gl=US",
         appstore: "https://apps.apple.com/us/app/bahozay-shop/id1636506063",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -237,6 +248,8 @@ export const projects: Record<ProjectKey, ProjectData> = {
       demoUrl: {
         web: "https://flaim.fun",
       },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 };

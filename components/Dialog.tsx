@@ -25,6 +25,7 @@ type ProjectDialogContent = {
     appstore?: string;
     web?: string;
   };
+  disclaimer?: string;
 };
 
 type LetterDialogTriggerProps = {
@@ -159,6 +160,7 @@ function ProjectDialogLayout({
   images,
   responsibilities,
   demoUrl,
+  disclaimer,
 }: ProjectDialogContent) {
   return (
     <div className="space-y-6">
@@ -214,6 +216,12 @@ function ProjectDialogLayout({
               <li key={i}>{item}</li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {disclaimer && (
+        <div className="mt-6 p-4 border border-yellow-700/40 bg-yellow-50/40 rounded-md text-xs text-yellow-900 italic leading-relaxed">
+          ⚠️ <strong>Disclaimer:</strong> {disclaimer}
         </div>
       )}
 
