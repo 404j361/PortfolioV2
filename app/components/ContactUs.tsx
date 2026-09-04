@@ -1,87 +1,79 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Bottle } from "@/components/icons";
-import WaveUnderline from "./WaveUnderline";
+import { FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa";
+
 type Props = { parchmentStyle: string };
 
+const links = [
+    {
+        href: "mailto:dev.jinn221@gmail.com",
+        label: "Email",
+        value: "dev.jinn221@gmail.com",
+        icon: FaEnvelope,
+    },
+    {
+        href: "https://github.com/404j361",
+        label: "GitHub",
+        value: "404j361",
+        icon: FaGithub,
+    },
+    {
+        href: "https://www.linkedin.com/in/wan-na-aung-3a5b692b6/",
+        label: "LinkedIn",
+        value: "Wan Na Aung",
+        icon: FaLinkedinIn,
+    },
+];
+
 export default function ContactUs({ parchmentStyle }: Props) {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.7, delay: 0.5 }}
-      className={parchmentStyle + " w-full max-w-6xl relative"}
-      id="contact"
-    >
-      <motion.div
-        className="absolute top-4 right-4 text-3xl opacity-20"
-        animate={{
-          rotate: [0, 10, -10, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        📧
-      </motion.div>
-
-      <div className="text-center mb-8">
-        <motion.h2
-          className="text-4xl font-bold pirate-text mb-4 flex justify-center items-center gap-3"
-          style={{ fontFamily: "Papyrus, fantasy" }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+    return (
+        <motion.section
+            initial={false}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45 }}
+            className={`${parchmentStyle} pb-24`}
+            id="contact"
         >
-          <Bottle width={40} height={40} />
-          Send a Message in a Bottle
-        </motion.h2>
-        <WaveUnderline />
-      </div>
+            <div className="glass-panel overflow-hidden rounded-[32px] p-6 md:p-10">
+                <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                    <div>
+                        <p className="eyebrow">Signal channel</p>
+                        <h2 className="font-display mt-3 text-4xl font-semibold tracking-[-0.03em] text-[color:var(--pearl)] md:text-6xl">
+                            Let the next build find its bearing.
+                        </h2>
+                    </div>
 
-      <div className="text-center">
-        <p className="text-lg leading-relaxed mb-6">
-          Ready to embark on a new digital adventure together? Whether you need
-          a skilled navigator for your next project or want to discuss the
-          latest treasures in web development, I'm always ready to chart new
-          courses!
-        </p>
+                    <div>
+                        <p className="max-w-2xl text-base leading-8 text-[color:var(--mist)]">
+                            Bring a product idea, a difficult interface, or a system that needs a steadier route.
+                            I am open to focused collaborations and practical engineering work.
+                        </p>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-          <motion.a
-            href="mailto:dev.jinn221@gmail.com"
-            target="_blank"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-700 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-800 transition-colors flex items-center gap-2"
-          >
-            📧 dev.jinn221@gmail.com
-          </motion.a>
-
-          <motion.a
-            href="https://github.com/404j361"
-            target="_blank"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-100 text-yellow-900 border-2 border-yellow-700 px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-200 transition-colors flex items-center gap-2"
-          >
-            🐙 GitHub Portfolio
-          </motion.a>
-
-          <motion.a
-            href="https://www.linkedin.com/in/wan-na-aung-3a5b692b6/"
-            target="_blank"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-100 text-yellow-900 border-2 border-yellow-700 px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-yellow-200 transition-colors flex items-center gap-2"
-          >
-            ⚓ LinkedIn
-          </motion.a>
-        </div>
-      </div>
-    </motion.section>
-  );
+                        <div className="mt-8 grid gap-3 md:grid-cols-3">
+                            {links.map((link) => {
+                                const Icon = link.icon;
+                                return (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                                        rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                                        className="group min-h-36 rounded-[24px] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-[color:var(--cyan)]/45 active:scale-[0.99]"
+                                    >
+                                        <Icon className="text-xl text-[color:var(--cyan)]" aria-hidden="true" />
+                                        <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">
+                                            {link.label}
+                                        </p>
+                                        <p className="mt-2 break-words text-sm font-semibold text-[color:var(--pearl)] group-hover:text-[color:var(--cyan)]">
+                                            {link.value}
+                                        </p>
+                                    </a>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </motion.section>
+    );
 }

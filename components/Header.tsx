@@ -1,23 +1,20 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    FaSkullCrossbones,
-    FaAnchor,
-    FaFeatherAlt,
-    FaMapMarkedAlt,
-    FaBars,
-    FaTimes,
-} from "react-icons/fa";
+import { FaAnchor, FaBars, FaCompass, FaFeatherAlt, FaSkullCrossbones, FaTimes } from "react-icons/fa";
 
-type Props = {};
+const navItems = [
+    { href: "#skills", label: "Skills", icon: FaFeatherAlt },
+    { href: "#recent-projects", label: "Projects", icon: FaCompass },
+    { href: "#work-history", label: "Voyage", icon: FaAnchor },
+    { href: "#contact", label: "Contact", icon: FaFeatherAlt },
+];
 
-export default function Header({}: Props) {
+export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
-    // Close mobile menu on click outside
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
             if (
@@ -30,118 +27,81 @@ export default function Header({}: Props) {
         }
 
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isMobileMenuOpen]);
 
     return (
         <motion.header
-            initial={{ y: -40, opacity: 0 }}
+            initial={false}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, type: "spring" }}
-            className="flex items-center justify-between py-4 md:py-6 px-4 md:px-8 bg-[url('https://www.transparenttextures.com/patterns/old-mathematics.png')] bg-[#998d68] border-b-4 border-yellow-700 rounded-b-2xl shadow-2xl sticky top-0 z-50"
-            style={{ backgroundBlendMode: "multiply" }}
+            transition={{ duration: 0.5 }}
+            className="fixed left-0 right-0 top-0 z-50 px-4 pt-3 md:px-8"
         >
-            {/* Logo & Title */}
-            <a href="#" className="flex items-center gap-2 md:gap-4">
-                <FaSkullCrossbones
-                    size={32}
-                    className="text-yellow-500 drop-shadow-lg md:w-12 md:h-12"
-                />
-                <span
-                    className="text-xl md:text-4xl font-black tracking-wide md:tracking-widest pirate-text text-[#f5e9c6] drop-shadow-lg"
-                    style={{ fontFamily: "Papyrus, fantasy" }}
-                >
-                    <span className="hidden sm:inline">Captain Jinn</span>
-                    <span className="sm:hidden">C. Jinn</span>
-                </span>
-            </a>
+            <div className="glass-panel mx-auto flex h-16 max-w-6xl items-center justify-between rounded-full px-3 md:px-4">
+                <a href="#" className="group flex items-center gap-3" aria-label="Captain Jinn home">
+                    <span className="grid h-11 w-11 place-items-center rounded-full bg-[color:var(--pearl)] text-[color:var(--obsidian)] transition-transform duration-300 group-hover:scale-105">
+                        <FaSkullCrossbones aria-hidden="true" />
+                    </span>
+                    <span className="grid leading-none">
+                        <span className="text-base font-bold tracking-[0.04em] text-[color:var(--pearl)] md:text-lg">
+                            Captain Jinn
+                        </span>
+                        <span className="mt-1 hidden text-[0.62rem] font-bold uppercase tracking-[0.22em] text-[color:var(--cyan)] sm:block">
+                            Interface Privateer
+                        </span>
+                    </span>
+                </a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex gap-6 text-lg font-semibold">
-                <a
-                    href="#skills"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors"
-                >
-                    <FaFeatherAlt /> Skills
-                </a>
-                <a
-                    href="#recent-projects"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors"
-                >
-                    <FaMapMarkedAlt /> Projects
-                </a>
-                <a
-                    href="#work-history"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors"
-                >
-                    <FaAnchor /> Work History
-                </a>
-                <a
-                    href="#contact"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors"
-                >
-                    <FaSkullCrossbones /> Contact
-                </a>
-            </nav>
+                <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+                    {navItems.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                            <a
+                                key={item.href}
+                                href={item.href}
+                                className="group inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--mist)] transition-colors hover:bg-white/10 hover:text-[color:var(--pearl)] active:scale-[0.98]"
+                            >
+                                <Icon className="text-[0.8rem] text-[color:var(--cyan)]" aria-hidden="true" />
+                                {item.label}
+                            </a>
+                        );
+                    })}
+                </nav>
 
-            {/* Mobile Menu Toggle */}
-            <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors"
-            >
-                {isMobileMenuOpen ? (
-                    <FaTimes size={20} />
-                ) : (
-                    <FaBars size={20} />
-                )}
-            </button>
+                <button
+                    onClick={() => setIsMobileMenuOpen((value) => !value)}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-[color:var(--pearl)] transition-colors hover:bg-white/10 lg:hidden"
+                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMobileMenuOpen}
+                >
+                    {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+            </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
                         ref={mobileMenuRef}
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-[#f5e9c6] border-b-4 border-yellow-700 shadow-2xl lg:hidden"
-                        style={{
-                            backgroundImage:
-                                "url('https://www.transparenttextures.com/patterns/old-mathematics.png')",
-                            backgroundBlendMode: "multiply",
-                        }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="mt-3 rounded-[28px] border border-white/10 bg-[color:var(--void)]/92 p-3 shadow-2xl backdrop-blur-xl lg:hidden"
                     >
-                        <nav className="flex flex-col gap-2 p-4">
-                            <a
-                                href="#projects"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors text-base font-semibold"
-                            >
-                                <FaMapMarkedAlt /> Projects
-                            </a>
-                            <a
-                                href="#skills"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors text-base font-semibold"
-                            >
-                                <FaFeatherAlt /> Skills
-                            </a>
-                            <a
-                                href="#work-history"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors text-base font-semibold"
-                            >
-                                <FaAnchor /> Work History
-                            </a>
-                            <a
-                                href="#contact"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 rounded-full bg-yellow-100 border-2 border-yellow-700 text-[#7c4a03] shadow hover:bg-yellow-200 transition-colors text-base font-semibold"
-                            >
-                                <FaSkullCrossbones /> Contact
-                            </a>
+                        <nav className="mx-auto grid max-w-6xl gap-1" aria-label="Mobile navigation">
+                            {navItems.map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <a
+                                        key={item.href}
+                                        href={item.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex min-h-12 items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--mist)] transition-colors hover:bg-white/10 hover:text-[color:var(--pearl)]"
+                                    >
+                                        <Icon className="text-[color:var(--cyan)]" aria-hidden="true" />
+                                        {item.label}
+                                    </a>
+                                );
+                            })}
                         </nav>
                     </motion.div>
                 )}

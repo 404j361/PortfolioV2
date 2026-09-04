@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Newsreader, Sora } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const sora = Sora({
+    variable: "--font-ui",
     subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const newsreader = Newsreader({
+    variable: "--font-display",
     subsets: ["latin"],
+    weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
     title: "Captain Jinn",
     description:
-        "Ahoy! Welcome aboard Captain Jinn's portfolio—set sail through code, creativity, and treasures of the digital seas.",
+        "Captain Jinn is a full-stack developer crafting sharp, modern web products with a distinctive digital privateer identity.",
 };
 
 export default function RootLayout({
@@ -26,9 +28,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#998d68] bg-[url('https://www.transparenttextures.com/patterns/old-mathematics.png')] bg-repeat bg-blend-multiply`}
-            >
+            <body className={`${sora.variable} ${newsreader.variable} antialiased`}>
                 <Header />
                 {children}
             </body>

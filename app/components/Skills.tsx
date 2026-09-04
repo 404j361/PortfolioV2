@@ -1,204 +1,95 @@
-import React from "react";
 import { motion } from "framer-motion";
-import WaveUnderline from "./WaveUnderline";
+import { FaCode, FaDatabase, FaServer, FaShip } from "react-icons/fa";
 
 type Props = { parchmentStyle: string };
 
+const groups = [
+    {
+        title: "Interface",
+        icon: FaCode,
+        detail: "Crisp product surfaces, responsive systems, and accessible interaction.",
+        skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "SvelteKit", "Remix"],
+    },
+    {
+        title: "Services",
+        icon: FaServer,
+        detail: "APIs, realtime flows, backend foundations, and maintainable delivery paths.",
+        skills: ["Node.js", "NestJS", "Go", "Go Chi", "Laravel", "WebSocket"],
+    },
+    {
+        title: "Operations",
+        icon: FaShip,
+        detail: "Shipping discipline across cloud, design handoff, deployment, and automation.",
+        skills: ["Docker", "Kubernetes", "CI/CD", "GitHub", "Figma", "DigitalOcean", "AWS"],
+    },
+    {
+        title: "Data",
+        icon: FaDatabase,
+        detail: "Readable models, fast queries, caching, and storage that survives scale.",
+        skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Prisma", "Mongoose", "SQLC"],
+    },
+];
+
 export default function Skills({ parchmentStyle }: Props) {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      className={parchmentStyle + " w-full max-w-6xl relative"}
-      id="skills"
-    >
-      <motion.div
-        className="absolute top-4 right-4 text-3xl opacity-20"
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 15,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-        }}
-      >
-        🏴‍☠️
-      </motion.div>
-      <motion.div
-        className="absolute bottom-4 left-4 text-2xl opacity-20"
-        animate={{
-          x: [-10, 10, -10],
-          y: [-5, 5, -5],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        ⚔️
-      </motion.div>
-
-      <div className="text-center mb-8">
-        <motion.h2
-          className="text-4xl font-bold pirate-text mb-4"
-          style={{ fontFamily: "Papyrus, fantasy" }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+    return (
+        <motion.section
+            initial={false}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45 }}
+            className={parchmentStyle}
+            id="skills"
         >
-          🦜 Skills & Arsenal
-        </motion.h2>
-        <WaveUnderline />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div
-          whileHover={{ scale: 1.02, rotateY: 5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="absolute -top-3 -left-3 text-2xl"
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            ⚔️
-          </motion.div>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              "HTML",
-              "CSS",
-              "JavaScript",
-              "SvelteKit",
-              "ReactJs",
-              "RemixJs",
-              "NextJs",
-            ].map((skill) => (
-              <div
-                key={skill}
-                className="bg-yellow-50 rounded px-3 py-2 text-center text-sm font-medium border border-yellow-600"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          whileHover={{ scale: 1.02, rotateY: -5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="absolute -top-3 -left-3 text-2xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 15, -15, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            🏴‍☠️
-          </motion.div>
-          <div className="grid grid-cols-2 gap-2">
-            {["NestJs", "PhP", "Laravel", "GoLang", "GoChi", "NodeJs"].map(
-              (skill) => (
-                <div
-                  key={skill}
-                  className="bg-yellow-50 rounded px-3 py-2 text-center text-sm font-medium border border-yellow-600"
-                >
-                  {skill}
+            <div className="mb-8 flex flex-col justify-between gap-5 md:mb-12 md:flex-row md:items-end">
+                <div>
+                    <p className="eyebrow">Capability deck</p>
+                    <h2 className="font-display mt-3 text-4xl font-semibold tracking-[-0.03em] text-[color:var(--pearl)] md:text-6xl">
+                        Sharp tools. Calm hands.
+                    </h2>
                 </div>
-              ),
-            )}
-          </div>
-        </motion.div>
+                <p className="max-w-xl text-base leading-7 text-[color:var(--mist)]">
+                    A practical stack for building interfaces people trust and systems teams can keep moving.
+                </p>
+            </div>
 
-        <motion.div
-          whileHover={{ scale: 1.02, rotateY: 5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="absolute -top-3 -left-3 text-2xl"
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: 20,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          >
-            🗺️
-          </motion.div>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              "Docker",
-              "Kubernetes",
-              "CI/CD",
-              "Github",
-              "Figma",
-              "DigitalOcean",
-              "AWS",
-              "WebSocket",
-            ].map((skill) => (
-              <div
-                key={skill}
-                className="bg-yellow-50 rounded px-3 py-2 text-center text-sm font-medium border border-yellow-600"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </motion.div>
+            <div className="grid gap-4 md:grid-cols-2">
+                {groups.map((group) => {
+                    const Icon = group.icon;
+                    return (
+                        <motion.article
+                            key={group.title}
+                            whileHover={{ y: -6 }}
+                            transition={{ type: "spring", stiffness: 320, damping: 26 }}
+                            className="glass-card group rounded-[28px] p-6 transition-colors hover:border-[color:var(--cyan)]/45 md:p-7"
+                        >
+                            <div className="flex items-start justify-between gap-4">
+                                <div>
+                                    <h3 className="text-2xl font-semibold text-[color:var(--pearl)]">
+                                        {group.title}
+                                    </h3>
+                                    <p className="mt-3 min-h-14 text-sm leading-7 text-[color:var(--mist)]">
+                                        {group.detail}
+                                    </p>
+                                </div>
+                                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[color:var(--cyan)]/12 text-[color:var(--cyan)]">
+                                    <Icon aria-hidden="true" />
+                                </span>
+                            </div>
 
-        <motion.div
-          whileHover={{ scale: 1.02, rotateY: -5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="absolute -top-3 -left-3 text-2xl"
-            animate={{
-              y: [-5, 5, -5],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            💰
-          </motion.div>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              "SQL",
-              "PSQL",
-              "MySQL",
-              "Redis",
-              "MongoDb",
-              "Prisma",
-              "Mongoose",
-              "SQLC",
-            ].map((skill) => (
-              <div
-                key={skill}
-                className="bg-yellow-50 rounded px-3 py-2 text-center text-sm font-medium border border-yellow-600"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
+                            <div className="mt-6 flex flex-wrap gap-2">
+                                {group.skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-semibold text-[color:var(--mist)] transition-colors group-hover:border-white/18"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.article>
+                    );
+                })}
+            </div>
+        </motion.section>
+    );
 }

@@ -1,131 +1,66 @@
-import React from "react";
 import { motion } from "framer-motion";
-import WaveUnderline from "./WaveUnderline";
+import { FaGraduationCap } from "react-icons/fa";
+
 type Props = { parchmentStyle: string };
 
+const achievements = [
+    {
+        value: "B.Sc.",
+        title: "Computer Science",
+        description: "University of the People.",
+        status: "Academic foundation",
+    },
+    {
+        value: "B.Sc.",
+        title: "Business Administration",
+        description: "Kamphaeng Phet Rajabhat University, Thailand.",
+        status: "Current degree",
+    },
+];
+
 export default function Achievement({ parchmentStyle }: Props) {
-  return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.7, delay: 0.35 }}
-      className={parchmentStyle + " w-full max-w-6xl relative"}
-      id="achievements"
-    >
-      <motion.div
-        className="absolute top-4 left-4 text-4xl opacity-15"
-        animate={{
-          rotate: [0, 10, -10, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        🏆
-      </motion.div>
-
-      <div className="text-center mb-8">
-        <motion.h2
-          className="text-4xl font-bold pirate-text mb-4"
-          style={{ fontFamily: "Papyrus, fantasy" }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+    return (
+        <motion.section
+            initial={false}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.45 }}
+            className={parchmentStyle}
+            id="achievements"
         >
-          🏴‍☠️ Legendary Achievements
-        </motion.h2>
-        <WaveUnderline />
-      </div>
+            <div className="mb-8 md:mb-12">
+                <p className="eyebrow">Academic signal</p>
+                <h2 className="font-display mt-3 text-4xl font-semibold tracking-[-0.03em] text-[color:var(--pearl)] md:text-6xl">
+                    Two disciplines. One builder.
+                </h2>
+            </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* GED Achievement */}
-        <motion.div
-          whileHover={{ scale: 1.05, y: -5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 text-center shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="text-4xl mb-4"
-            animate={{
-              rotate: [0, 15, -15, 0],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            🎓
-          </motion.div>
-          <h3 className="text-lg font-bold text-yellow-900 mb-2">
-            GED Conqueror
-          </h3>
-          <p className="text-sm text-yellow-800">
-            Scored <strong>723/800</strong> on the GED exam, mastering the seas
-            of general knowledge.
-          </p>
-        </motion.div>
-
-        {/* Duolingo Achievement */}
-        <motion.div
-          whileHover={{ scale: 1.05, y: -5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 text-center shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="text-4xl mb-4"
-            animate={{
-              y: [-5, 5, -5],
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            🗣️
-          </motion.div>
-          <h3 className="text-lg font-bold text-yellow-900 mb-2">
-            Duolingo Voyager
-          </h3>
-          <p className="text-sm text-yellow-800">
-            Reached a mighty <strong>115</strong> score, proving linguistic
-            prowess across foreign waters.
-          </p>
-        </motion.div>
-
-        {/* UoPeople Bachelor */}
-        <motion.div
-          whileHover={{ scale: 1.05, y: -5 }}
-          className="bg-yellow-100 bg-opacity-70 border-3 border-yellow-700 rounded-lg p-6 text-center shadow-lg relative"
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            className="text-4xl mb-4"
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          >
-            📜
-          </motion.div>
-          <h3 className="text-lg font-bold text-yellow-900 mb-2">
-            Scholar of the High Seas
-          </h3>
-          <p className="text-sm text-yellow-800">
-            Currently navigating the Bachelor’s journey at{" "}
-            <strong>University of the People</strong>, charting new knowledge
-            horizons.
-          </p>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
+            <div className="grid gap-4 md:grid-cols-2">
+                {achievements.map((item) => (
+                    <motion.article
+                        key={item.title}
+                        whileHover={{ y: -6 }}
+                        transition={{ type: "spring", stiffness: 320, damping: 26 }}
+                        className="glass-card relative overflow-hidden rounded-[28px] p-6 md:p-8"
+                    >
+                        <div className="absolute right-6 top-6 grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--cyan)]/12 text-[color:var(--cyan)]">
+                            <FaGraduationCap aria-hidden="true" />
+                        </div>
+                        <p className="font-display text-6xl font-semibold tracking-[-0.04em] text-[color:var(--gold)]">
+                            {item.value}
+                        </p>
+                        <h3 className="mt-6 text-2xl font-semibold text-[color:var(--pearl)]">
+                            {item.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-7 text-[color:var(--mist)]">
+                            {item.description}
+                        </p>
+                        <p className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-semibold text-[color:var(--cyan)]">
+                            {item.status}
+                        </p>
+                    </motion.article>
+                ))}
+            </div>
+        </motion.section>
+    );
 }

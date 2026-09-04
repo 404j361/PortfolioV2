@@ -1,28 +1,216 @@
 @import "tailwindcss";
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --obsidian: #05070d;
+    --navy: #071827;
+    --void: #0c1020;
+    --glass: rgba(255, 255, 255, 0.09);
+    --glass-strong: rgba(255, 255, 255, 0.15);
+    --line: rgba(226, 236, 255, 0.16);
+    --pearl: #f4f7ff;
+    --mist: #aebbd2;
+    --muted: #748199;
+    --cyan: #61f4ff;
+    --violet: #8d7bff;
+    --gold: #ffd36e;
+    --coral: #ff6b7a;
+    --ink: #101522;
+    --focus: #61f4ff;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --radius-xl: 32px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
 }
 
 @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
+    --color-background: var(--obsidian);
+    --color-foreground: var(--pearl);
+    --font-sans: var(--font-ui);
+    --font-display: var(--font-display);
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--pearl);
+    background:
+        radial-gradient(circle at 18% 12%, rgba(97, 244, 255, 0.18), transparent 28rem),
+        radial-gradient(circle at 84% 8%, rgba(141, 123, 255, 0.22), transparent 30rem),
+        radial-gradient(circle at 50% 100%, rgba(255, 211, 110, 0.12), transparent 34rem),
+        linear-gradient(180deg, var(--navy) 0%, var(--obsidian) 52%, #030409 100%);
+    font-family: var(--font-ui), sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(244, 247, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 247, 255, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at 50% 18%, black, transparent 78%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.55;
+    background:
+        linear-gradient(115deg, transparent 0 42%, rgba(97, 244, 255, 0.1) 42.2% 42.45%, transparent 42.8%),
+        linear-gradient(245deg, transparent 0 45%, rgba(255, 211, 110, 0.08) 45.2% 45.45%, transparent 45.8%);
+    background-size: 360px 360px;
+}
+
+::selection {
+    color: var(--obsidian);
+    background: var(--cyan);
+}
+
+a,
+button {
+    touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+.font-display {
+    font-family: var(--font-display), Georgia, serif;
+}
+
+.shell {
+    color: var(--pearl);
+}
+
+.glass-panel {
+    border: 1px solid var(--line);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.055)),
+        radial-gradient(circle at top left, rgba(97, 244, 255, 0.1), transparent 24rem);
+    box-shadow: 0 28px 90px var(--shadow);
+    backdrop-filter: blur(28px) saturate(1.2);
+}
+
+.glass-card {
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045));
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(22px);
+}
+
+.surface-light {
+    color: var(--ink);
+    background:
+        linear-gradient(145deg, rgba(244, 247, 255, 0.96), rgba(208, 220, 242, 0.9)),
+        radial-gradient(circle at top right, rgba(97, 244, 255, 0.14), transparent 18rem);
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+}
+
+.gradient-text {
+    background: linear-gradient(110deg, var(--pearl), #dbe7ff 38%, var(--cyan) 72%, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.soft-ring {
+    box-shadow:
+        inset 0 0 0 1px rgba(244, 247, 255, 0.16),
+        0 0 0 1px rgba(97, 244, 255, 0.08),
+        0 30px 120px rgba(97, 244, 255, 0.18);
+}
+
+.kinetic-stage {
+    background:
+        radial-gradient(circle at 34% 22%, rgba(97, 244, 255, 0.16), transparent 17rem),
+        radial-gradient(circle at 78% 64%, rgba(255, 107, 122, 0.1), transparent 15rem),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    backdrop-filter: blur(20px);
+}
+
+.kinetic-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(244, 247, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 247, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 42%, black, transparent 78%);
+}
+
+.kinetic-stage::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% 4% -20%;
+    height: 7rem;
+    background:
+        repeating-linear-gradient(
+            175deg,
+            rgba(97, 244, 255, 0.12) 0 2px,
+            transparent 2px 18px
+        );
+    opacity: 0.5;
+    transform: rotate(-2deg);
+    animation: tide-drift 9s ease-in-out infinite alternate;
+}
+
+.route-line {
+    stroke-dasharray: 18 18;
+    animation: route-dash 2.8s linear infinite;
+}
+
+.clip-sail {
+    clip-path: polygon(0 0, 100% 12%, 18% 100%, 0 100%);
+}
+
+.clip-sail-left {
+    clip-path: polygon(100% 0, 100% 100%, 0 86%, 74% 12%);
+}
+
+@keyframes route-dash {
+    to {
+        stroke-dashoffset: -72;
+    }
+}
+
+@keyframes tide-drift {
+    from {
+        transform: translateX(-1.5rem) rotate(-2deg);
+    }
+    to {
+        transform: translateX(1.5rem) rotate(-2deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -5,6 +5,8 @@ export const PROJECT_KEYS = {
   LIFI_AI: "lifi_ai",
   KEYBOARD_QUIZ: "keyboard_quiz",
   ZAY_MARKETS: "zay_markets",
+  SABANA_POS: "sabana_pos",
+  JUWONG_API: "juwong_api",
   BAHOZAY: "bahozay",
   FLAIM: "flaim",
 } as const;
@@ -186,6 +188,58 @@ export const projects: Record<ProjectKey, ProjectData> = {
       },
       disclaimer:
         "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
+    },
+  },
+
+  sabana_pos: {
+    title: "🧾 Sabana POS Back Office",
+    tech: "Next.js 16 • React 19 • Redux Toolkit • Tailwind CSS • ShadCN UI",
+    description: `Built a production back-office platform for managing POS operations across organizations, stores, users, master data, products, SKUs, pricing, imports, exports, and sync monitoring. The system is designed for operators who need fast, predictable workflows and reliable administrative control.`,
+    tags: [
+      "POS Back Office",
+      "Admin Dashboard",
+      "Master Data",
+      "Store Operations",
+      "Import/Export",
+    ],
+    dialog: {
+      description: `A POS administration system for configuring and maintaining store networks, operational records, product catalogs, Master SKUs, store-selling SKUs, bulk registration, and business data-transfer workflows.`,
+      responsibilities: [
+        "Built authenticated back-office pages with Next.js and React",
+        "Implemented organization, store, user, product, brand, SKU, and location management flows",
+        "Developed reusable table, filter, dialog, and form patterns for repeated admin workflows",
+        "Integrated Redux Toolkit Query data flows and server-backed route handlers",
+        "Implemented import, export, and bulk registration workflows for operational data",
+        "Supported POS sync monitoring, audit views, validation states, and secure session handling",
+      ],
+      disclaimer:
+        "This is a private/internal project. I contributed as a developer; product ownership, branding, and business data belong to the project stakeholders.",
+    },
+  },
+
+  juwong_api: {
+    title: "💠 JuWang System API",
+    tech: "NestJS 11 • Prisma 7 • PostgreSQL • JWT • Swagger",
+    description: `Built a secure backend API for managing sales, commission packages, commission payments, expenses, penalties, teams, pools, account management, currencies, and dashboard reporting. The system supports role-based access, file uploads, scheduled commission calculations, and precise monetary formatting across currencies.`,
+    tags: [
+      "Backend API",
+      "Commission Engine",
+      "Sales Workflow",
+      "Prisma",
+      "Role Security",
+    ],
+    dialog: {
+      description: `A NestJS backend system powering business operations around sales submissions, approvals, team structures, commission calculation, payout tracking, penalties, expenses, pool management, currency display, and administrative reporting.`,
+      responsibilities: [
+        "Designed REST API modules with NestJS controllers, services, guards, filters, and interceptors",
+        "Modeled sales, commission, payment, expense, penalty, pool, team, user, and currency data with Prisma",
+        "Implemented JWT authentication, role-based authorization, request throttling, and Helmet security hardening",
+        "Built sales request workflows with draft, submit, review, approve, reject, and receipt upload support",
+        "Implemented commission packages, scheduled monthly calculations, bonus rules, and payment tracking",
+        "Added Swagger/Scalar API documentation and production deployment scripts for managed server releases",
+      ],
+      disclaimer:
+        "This is a private backend/API project. I contributed as a developer; product ownership, infrastructure, credentials, and business data belong to the project stakeholders.",
     },
   },
 

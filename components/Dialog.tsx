@@ -67,7 +67,7 @@ export function LetterDialog({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-[color:var(--obsidian)]/72 backdrop-blur-md"
           />
 
           <div
@@ -80,41 +80,31 @@ export function LetterDialog({
               animate={{ scale: 1, opacity: 1, rotateY: 0 }}
               exit={{ scale: 0.8, opacity: 0, rotateY: 10 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative max-w-2xl w-full max-h-[90vh] perspective-1000"
+              className="relative max-h-[90vh] w-full max-w-4xl perspective-1000"
             >
               <motion.div
-                initial={{
-                  scaleY: 0.1,
-                  scaleX: 0.9,
-                  rotateX: -90,
-                  transformOrigin: "center bottom",
-                }}
-                animate={{
-                  scaleY: 1,
-                  scaleX: 1,
-                  rotateX: 0,
-                  transformOrigin: "center bottom",
-                }}
+                initial={{ y: 16, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.35,
                   ease: "easeOut",
-                  delay: 0.1,
                 }}
-                className={`relative bg-[#f5e9c6] bg-[url('https://www.transparenttextures.com/patterns/old-mathematics.png')] border-4 border-yellow-700 rounded-xl shadow-xl overflow-hidden ${
+                className={`glass-panel relative overflow-hidden rounded-[32px] shadow-2xl ${
                   className || ""
                 }`}
               >
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="relative z-10 p-8 h-full overflow-y-auto text-[#7c4a03] font-pirate"
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="relative z-10 h-full overflow-y-auto p-6 text-[color:var(--pearl)] md:p-8"
                 >
                   <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 p-2 rounded-full bg-yellow-200/30 hover:bg-yellow-300/50 transition-colors group"
+                    className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-white/15 text-[color:var(--pearl)] transition-colors hover:border-[color:var(--cyan)] hover:text-[color:var(--cyan)]"
+                    aria-label="Close dialog"
                   >
-                    <FaX className="w-5 h-5 text-[#7c4a03] group-hover:text-[#5a3602]" />
+                    <FaX className="h-4 w-4" />
                   </button>
 
                   {title && (
@@ -125,10 +115,10 @@ export function LetterDialog({
                         duration: 0.5,
                         delay: 0.4,
                       }}
-                      className="text-center mb-6"
+                      className="mb-8 pr-12"
                     >
-                      <h2 className="text-3xl font-bold mb-2">{title}</h2>
-                      <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#7c4a03] to-transparent mx-auto"></div>
+                      <h2 className="font-display text-4xl font-semibold tracking-[-0.03em] text-[color:var(--pearl)]">{title}</h2>
+                      <div className="mt-4 h-px w-32 bg-gradient-to-r from-[color:var(--cyan)] to-transparent"></div>
                     </motion.div>
                   )}
 
@@ -165,7 +155,7 @@ function ProjectDialogLayout({
   return (
     <div className="space-y-6">
       {description && (
-        <p className="leading-relaxed text-lg whitespace-pre-line">
+        <p className="whitespace-pre-line text-base leading-8 text-[color:var(--mist)]">
           {description}
         </p>
       )}
@@ -188,7 +178,7 @@ function ProjectDialogLayout({
                 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className={`
-                  relative w-full overflow-hidden rounded-lg border-2 border-yellow-700 shadow-md
+                  relative w-full overflow-hidden rounded-[22px] border border-white/10
                   ${shouldBeFullWidth ? "sm:col-span-2" : ""}
                   aspect-[16/9] cursor-pointer
                 `}
@@ -202,7 +192,7 @@ function ProjectDialogLayout({
                 />
 
                 {/* glow effect */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300 bg-yellow-200/10" />
+                <div className="pointer-events-none absolute inset-0 bg-[color:var(--cyan)]/0 opacity-0 transition-opacity duration-300 hover:opacity-100" />
               </motion.div>
             );
           })}
@@ -210,18 +200,22 @@ function ProjectDialogLayout({
 
       {responsibilities && responsibilities.length > 0 && (
         <div>
-          <h3 className="text-xl font-bold mb-3">My Responsibilities</h3>
-          <ul className="list-disc pl-6 space-y-2 text-base">
+          <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--cyan)]">
+            Responsibilities
+          </h3>
+          <ul className="space-y-2 text-sm leading-7 text-[color:var(--mist)]">
             {responsibilities.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i} className="border-l border-white/15 pl-4">
+                {item}
+              </li>
             ))}
           </ul>
         </div>
       )}
 
       {disclaimer && (
-        <div className="mt-6 p-4 border border-yellow-700/40 bg-yellow-50/40 rounded-md text-xs text-yellow-900 italic leading-relaxed">
-          ⚠️ <strong>Disclaimer:</strong> {disclaimer}
+        <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-sm italic leading-6 text-[color:var(--muted)]">
+          <strong className="text-[color:var(--mist)]">Disclaimer:</strong> {disclaimer}
         </div>
       )}
 
@@ -232,9 +226,9 @@ function ProjectDialogLayout({
               href={demoUrl.web}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full gap-1 px-3 py-2 bg-yellow-100 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300"
+              className="flex min-h-12 w-full items-center justify-center rounded-full bg-[color:var(--pearl)] px-3 py-3 text-xs font-bold text-[color:var(--obsidian)] transition hover:scale-[1.02] active:scale-[0.98]"
             >
-              🌐 Visit Site
+              Visit Site
             </a>
           )}
 
@@ -243,7 +237,7 @@ function ProjectDialogLayout({
               href={demoUrl.play}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full gap-1 px-3 py-2 bg-yellow-100 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300"
+              className="flex min-h-12 w-full items-center justify-center rounded-full border border-white/15 px-3 py-3 text-xs font-bold text-[color:var(--pearl)] transition hover:border-[color:var(--cyan)] hover:text-[color:var(--cyan)]"
             >
               Get on Play Store
             </a>
@@ -254,7 +248,7 @@ function ProjectDialogLayout({
               href={demoUrl.appstore}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full gap-1 px-3 py-2 bg-yellow-100 text-yellow-900 text-sm font-semibold rounded-md border-2 border-yellow-700 shadow-md hover:bg-yellow-200 hover:scale-105 transform transition-all duration-300"
+              className="flex min-h-12 w-full items-center justify-center rounded-full border border-white/15 px-3 py-3 text-xs font-bold text-[color:var(--pearl)] transition hover:border-[color:var(--cyan)] hover:text-[color:var(--cyan)]"
             >
               Download on App Store
             </a>
