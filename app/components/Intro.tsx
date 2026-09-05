@@ -2,7 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FaAnchor, FaArrowRight, FaCompass, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaArrowRight, FaCompass, FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import KineticHeroStage from "./KineticHeroStage";
 
 type Props = { parchmentStyle: string };
@@ -78,8 +78,9 @@ export default function Intro({ parchmentStyle }: Props) {
         <section className={`${parchmentStyle} min-h-[calc(100dvh-6rem)] border-t-0 pt-4 md:pt-10`}>
             <div className="grid items-center gap-8 lg:grid-cols-[0.86fr_1.14fr]">
                 <motion.div
-                    initial={false}
+                    initial={{ opacity: 0, y: 34 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     className="relative order-2 py-6 lg:order-1 lg:py-10"
                 >
                     <div className="absolute -left-20 top-0 h-44 w-44 rounded-full bg-[color:var(--cyan)]/12 blur-3xl" />
@@ -107,11 +108,13 @@ export default function Intro({ parchmentStyle }: Props) {
                             <FaArrowRight aria-hidden="true" />
                         </a>
                         <a
-                            href="#contact"
+                            href="/resume.pdf"
+                            download="Wanna-Aung-Resume.pdf"
                             className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/18 px-5 py-3 text-sm font-bold text-[color:var(--pearl)] transition duration-200 hover:scale-[1.02] hover:border-[color:var(--cyan)] hover:text-[color:var(--cyan)] active:scale-[0.98]"
+                            aria-label="Download resume"
                         >
-                            <FaAnchor aria-hidden="true" />
-                            Start a build
+                            <FaDownload aria-hidden="true" />
+                            Download resume
                         </a>
                     </div>
 
@@ -131,8 +134,9 @@ export default function Intro({ parchmentStyle }: Props) {
                 <div className="relative order-1 flex flex-col lg:order-2">
                     <KineticHeroStage />
                     <motion.aside
-                        initial={false}
+                        initial={{ opacity: 0, y: 28 }}
                         animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
                         className="relative z-10 mt-6 ml-auto w-full max-w-2xl overflow-hidden rounded-[24px] border border-white/10 bg-black/20 p-3 shadow-[0_24px_80px_rgba(0,0,0,0.32)] backdrop-blur-2xl md:mt-7 md:p-4 lg:mt-8"
                     >
                         <div className="grid grid-cols-[5rem_1fr] gap-3 md:grid-cols-[7rem_1fr_auto] md:items-center md:gap-4">
@@ -154,7 +158,7 @@ export default function Intro({ parchmentStyle }: Props) {
                                     </p>
                                 </div>
                             </div>
-                            <div className="col-span-2 flex gap-3 md:col-span-1">
+                            <div className="col-span-2 flex flex-wrap items-center gap-3 md:col-span-1 md:justify-end">
                                 <a
                                     href="https://github.com/404j361"
                                     target="_blank"

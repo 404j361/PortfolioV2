@@ -27,10 +27,10 @@ const links = [
 export default function ContactUs({ parchmentStyle }: Props) {
     return (
         <motion.section
-            initial={false}
+            initial={{ opacity: 0, y: 56 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className={`${parchmentStyle} pb-24`}
             id="contact"
         >

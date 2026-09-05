@@ -50,10 +50,10 @@ const roles = [
 export default function WorkHistory({ parchmentStyle }: Props) {
     return (
         <motion.section
-            initial={false}
+            initial={{ opacity: 0, y: 56 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className={parchmentStyle}
             id="work-history"
         >
@@ -73,6 +73,9 @@ export default function WorkHistory({ parchmentStyle }: Props) {
                 {roles.map((role, index) => (
                     <motion.article
                         key={`${role.company}-${role.period}`}
+                        initial={{ opacity: 0, y: 36 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.18 }}
                         whileHover={{ x: 6 }}
                         transition={{ type: "spring", stiffness: 300, damping: 28 }}
                         className="glass-card grid gap-6 rounded-[28px] p-6 md:grid-cols-[11rem_1fr_auto] md:items-start md:p-7"

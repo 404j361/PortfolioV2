@@ -1,13 +1,12 @@
 export const PROJECT_KEYS = {
   SOCIAL_METRICA: "social_metrica",
-  ALCHEMIST_ACADEMY: "alchemist_academy",
   YUMYUM: "yumyum_myanmar",
   LIFI_AI: "lifi_ai",
+  BAHOZAY: "bahozay",
   KEYBOARD_QUIZ: "keyboard_quiz",
   ZAY_MARKETS: "zay_markets",
   SABANA_POS: "sabana_pos",
   JUWONG_API: "juwong_api",
-  BAHOZAY: "bahozay",
   FLAIM: "flaim",
 } as const;
 
@@ -60,33 +59,6 @@ export const projects: Record<ProjectKey, ProjectData> = {
     },
   },
 
-  alchemist_academy: {
-    title: "⚔️ Alchemist Academy",
-    tech: "ReactJs • WebSocket • TailwindCSS • AntDesign",
-    description: `Set sail on the high seas of knowledge! 🏴‍☠️ Alchemist Academy is an AI-powered learning vessel where students sharpen their skills for the PTE exam. From Reading to Writing and Speaking, adventurers practice with real-time feedback, guided by clever algorithms instead of old sea maps.`,
-    tags: ["Reading Quests", "Speaking Adventures", "AI Navigator Feedback"],
-    url: "https://pte.alchemistacademy.com.au/",
-    dialog: {
-      description: `An AI-driven education platform for PTE learners with real-time scoring and adaptive feedback.`,
-      images: [
-        "alchemist-academy/home.png",
-        "alchemist-academy/writing.png",
-        "alchemist-academy/speaking.png",
-        "alchemist-academy/subscription.png",
-      ],
-      responsibilities: [
-        "Built real-time speaking evaluation system",
-        "Designed WebSocket communication",
-        "Frontend architecture",
-      ],
-      demoUrl: {
-        web: "https://pte.alchemistacademy.com.au/",
-      },
-      disclaimer:
-        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
-    },
-  },
-
   yumyum_myanmar: {
     title: "🗺️ YumYum Myanmar",
     tech: "React • MongoDB",
@@ -130,6 +102,40 @@ export const projects: Record<ProjectKey, ProjectData> = {
         play: "https://play.google.com/store/apps/details?id=com.lifi.app",
         appstore: "https://apps.apple.com/gb/app/lifi-ai/id6756911692",
       },
+    },
+  },
+
+  bahozay: {
+    title: "🛒 Bahozay",
+    tech: "React.js • NestJS • Supabase/PostgreSQL • Mobile Apps",
+    description: `Developed **Bahozay**, a wholesale marketplace platform under Myanmar Zarla Distribution that empowers shops and retailers through streamlined product browsing and bulk ordering. Built full-stack with React on the web, scalable NestJS APIs, and Supabase-backed database, with native mobile apps for Android and iOS to reach users on the go.`,
+    tags: [
+      "Wholesale Marketplace",
+      "Retailer App",
+      "React",
+      "NestJS",
+      "Supabase",
+      "Mobile",
+    ],
+    url: "https://zarladistribution.com/bahozay/",
+    dialog: {
+      description: `A comprehensive B2B & B2R wholesale commerce platform connecting brands, distributors, and retail outlets across Myanmar with web and mobile experiences.`,
+      images: ["bahozay/bahozay-playstore.png", "bahozay/bahozay-appstore.png"],
+      responsibilities: [
+        "Built responsive web marketplace with React.js",
+        "Designed and implemented NestJS REST APIs",
+        "Managed Supabase (PostgreSQL) database design and queries",
+        "Developed mobile app integration for Android & iOS",
+        "Handled authentication, product catalog, cart & order workflows",
+        "Optimized performance and backend scalability",
+      ],
+      demoUrl: {
+        web: "https://zarladistribution.com/bahozay/",
+        play: "https://play.google.com/store/apps/details?id=com.bahozay.app&hl=en&gl=US",
+        appstore: "https://apps.apple.com/us/app/bahozay-shop/id1636506063",
+      },
+      disclaimer:
+        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 
@@ -240,40 +246,6 @@ export const projects: Record<ProjectKey, ProjectData> = {
       ],
       disclaimer:
         "This is a private backend/API project. I contributed as a developer; product ownership, infrastructure, credentials, and business data belong to the project stakeholders.",
-    },
-  },
-
-  bahozay: {
-    title: "🛒 Bahozay",
-    tech: "React.js • NestJS • Supabase/PostgreSQL • Mobile Apps",
-    description: `Developed **Bahozay**, a wholesale marketplace platform under Myanmar Zarla Distribution that empowers shops and retailers through streamlined product browsing and bulk ordering. Built full-stack with React on the web, scalable NestJS APIs, and Supabase-backed database, with native mobile apps for Android and iOS to reach users on the go.`,
-    tags: [
-      "Wholesale Marketplace",
-      "Retailer App",
-      "React",
-      "NestJS",
-      "Supabase",
-      "Mobile",
-    ],
-    url: "https://zarladistribution.com/bahozay/",
-    dialog: {
-      description: `A comprehensive B2B & B2R wholesale commerce platform connecting brands, distributors, and retail outlets across Myanmar with web and mobile experiences.`,
-      images: ["bahozay/bahozay-playstore.png", "bahozay/bahozay-appstore.png"],
-      responsibilities: [
-        "Built responsive web marketplace with React.js",
-        "Designed and implemented NestJS REST APIs",
-        "Managed Supabase (PostgreSQL) database design and queries",
-        "Developed mobile app integration for Android & iOS",
-        "Handled authentication, product catalog, cart & order workflows",
-        "Optimized performance and backend scalability",
-      ],
-      demoUrl: {
-        web: "https://zarladistribution.com/bahozay/",
-        play: "https://play.google.com/store/apps/details?id=com.bahozay.app&hl=en&gl=US",
-        appstore: "https://apps.apple.com/us/app/bahozay-shop/id1636506063",
-      },
-      disclaimer:
-        "I was hired solely as a developer for this project. I am not the owner. All branding, content, and claims are the responsibility of the project owners.",
     },
   },
 

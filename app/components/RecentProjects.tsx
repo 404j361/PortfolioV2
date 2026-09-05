@@ -13,12 +13,11 @@ const projectList = [
     projects[PROJECT_KEYS.SOCIAL_METRICA],
     projects[PROJECT_KEYS.LIFI_AI],
     projects[PROJECT_KEYS.YUMYUM],
+    projects[PROJECT_KEYS.BAHOZAY],
     projects[PROJECT_KEYS.KEYBOARD_QUIZ],
-    projects[PROJECT_KEYS.ALCHEMIST_ACADEMY],
     projects[PROJECT_KEYS.ZAY_MARKETS],
     projects[PROJECT_KEYS.SABANA_POS],
     projects[PROJECT_KEYS.JUWONG_API],
-    projects[PROJECT_KEYS.BAHOZAY],
     projects[PROJECT_KEYS.FLAIM],
 ];
 
@@ -31,10 +30,10 @@ export default function RecentProjects({ parchmentStyle }: Props) {
         <motion.section
             id="recent-projects"
             className={parchmentStyle}
-            initial={false}
+            initial={{ opacity: 0, y: 56 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.12 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
             <div className="mb-8 flex flex-col justify-between gap-5 md:mb-12 md:flex-row md:items-end">
                 <div>
@@ -52,7 +51,7 @@ export default function RecentProjects({ parchmentStyle }: Props) {
                 {projectList.map((p, index) => (
                     <motion.article
                         key={p.title}
-                        initial={false}
+                        initial={{ opacity: 0, y: 36 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.15 }}
                         whileHover={{ y: -7 }}

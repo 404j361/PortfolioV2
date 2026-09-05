@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaAnchor, FaBars, FaCompass, FaFeatherAlt, FaSkullCrossbones, FaTimes } from "react-icons/fa";
+import { FaAnchor, FaBars, FaCompass, FaFeatherAlt, FaMoon, FaSkullCrossbones, FaSun, FaTimes } from "react-icons/fa";
 
 const navItems = [
     { href: "#skills", label: "Skills", icon: FaFeatherAlt },
@@ -13,7 +13,13 @@ const navItems = [
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<"dark" | "light">("dark");
     const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const currentTheme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+        setTheme(currentTheme);
+    }, []);
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -29,6 +35,13 @@ export default function Header() {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isMobileMenuOpen]);
+
+    function toggleTheme() {
+        const nextTheme = theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = nextTheme;
+        localStorage.setItem("captain-jinn-theme", nextTheme);
+        setTheme(nextTheme);
+    }
 
     return (
         <motion.header
@@ -68,14 +81,26 @@ export default function Header() {
                     })}
                 </nav>
 
-                <button
-                    onClick={() => setIsMobileMenuOpen((value) => !value)}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-[color:var(--pearl)] transition-colors hover:bg-white/10 lg:hidden"
-                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={isMobileMenuOpen}
-                >
-                    {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-                </button>
+                <div className="flex items-center gap-2">
+                    <button
+                        type="button"
+                        onClick={toggleTheme}
+                        className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-[color:var(--pearl)] transition-colors hover:bg-white/10 active:scale-[0.98]"
+                        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+                        title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+                    >
+                        {theme === "dark" ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
+                    </button>
+
+                    <button
+                        onClick={() => setIsMobileMenuOpen((value) => !value)}
+                        className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-[color:var(--pearl)] transition-colors hover:bg-white/10 lg:hidden"
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isMobileMenuOpen}
+                    >
+                        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+                    </button>
+                </div>
             </div>
 
             <AnimatePresence>

@@ -40,6 +40,9 @@ export default function KineticHeroStage() {
             className="kinetic-stage relative h-[25rem] w-full overflow-hidden rounded-[30px] border border-white/10 md:h-[30rem] lg:h-[34rem]"
             role="img"
             aria-label="Animated parallax sea chart with route lines and privateer interface elements"
+            initial={{ opacity: 0, y: 28, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             onPointerMove={(event) => {
                 const rect = event.currentTarget.getBoundingClientRect();
                 pointerX.set(((event.clientX - rect.left) / rect.width - 0.5) * 2);

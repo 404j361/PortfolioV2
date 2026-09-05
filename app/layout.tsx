@@ -21,14 +21,27 @@ export const metadata: Metadata = {
         "Captain Jinn is a full-stack developer crafting sharp, modern web products with a distinctive digital privateer identity.",
 };
 
+const themeScript = `
+(() => {
+  try {
+    const stored = localStorage.getItem("captain-jinn-theme");
+    const theme = stored === "light" || stored === "dark" ? stored : "dark";
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    document.documentElement.dataset.theme = "dark";
+  }
+})();
+`;
+
 export default function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={`${sora.variable} ${newsreader.variable} antialiased`}>
+                <script dangerouslySetInnerHTML={{ __html: themeScript }} />
                 <Header />
                 {children}
             </body>

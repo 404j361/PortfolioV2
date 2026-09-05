@@ -33,10 +33,10 @@ const groups = [
 export default function Skills({ parchmentStyle }: Props) {
     return (
         <motion.section
-            initial={false}
+            initial={{ opacity: 0, y: 56 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className={parchmentStyle}
             id="skills"
         >
@@ -58,6 +58,9 @@ export default function Skills({ parchmentStyle }: Props) {
                     return (
                         <motion.article
                             key={group.title}
+                            initial={{ opacity: 0, y: 32 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.22 }}
                             whileHover={{ y: -6 }}
                             transition={{ type: "spring", stiffness: 320, damping: 26 }}
                             className="glass-card group rounded-[28px] p-6 transition-colors hover:border-[color:var(--cyan)]/45 md:p-7"

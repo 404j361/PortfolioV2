@@ -11,8 +11,8 @@ const achievements = [
         status: "Academic foundation",
     },
     {
-        value: "B.Sc.",
-        title: "Business Administration",
+        value: "BBA",
+        title: "Bachelor of Business Administration",
         description: "Kamphaeng Phet Rajabhat University, Thailand.",
         status: "Current degree",
     },
@@ -21,10 +21,10 @@ const achievements = [
 export default function Achievement({ parchmentStyle }: Props) {
     return (
         <motion.section
-            initial={false}
+            initial={{ opacity: 0, y: 56 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className={parchmentStyle}
             id="achievements"
         >
@@ -39,6 +39,9 @@ export default function Achievement({ parchmentStyle }: Props) {
                 {achievements.map((item) => (
                     <motion.article
                         key={item.title}
+                        initial={{ opacity: 0, y: 36 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         whileHover={{ y: -6 }}
                         transition={{ type: "spring", stiffness: 320, damping: 26 }}
                         className="glass-card relative overflow-hidden rounded-[28px] p-6 md:p-8"

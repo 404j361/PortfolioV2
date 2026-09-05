@@ -36,6 +36,7 @@ export default function Home() {
 
     return (
         <main className="shell relative min-h-dvh overflow-hidden px-4 pt-24 md:px-8">
+            <div className="hero-aurora pointer-events-none fixed inset-x-0 top-0 z-0 h-[48rem]" />
             <div className="pointer-events-none fixed left-1/2 top-20 h-72 w-[44rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(97,244,255,0.18),transparent_68%)] blur-3xl" />
             <div className="pointer-events-none fixed bottom-[-12rem] left-1/2 h-96 w-[54rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(141,123,255,0.17),transparent_68%)] blur-3xl" />
             <ScrollAtmosphere />
