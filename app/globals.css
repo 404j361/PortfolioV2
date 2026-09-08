@@ -260,9 +260,9 @@ html[data-theme="light"] .soft-ring {
 
 .kinetic-stage {
     background:
-        radial-gradient(circle at 34% 22%, rgba(97, 244, 255, 0.16), transparent 17rem),
-        radial-gradient(circle at 78% 64%, rgba(255, 107, 122, 0.1), transparent 15rem),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+        radial-gradient(circle at 34% 22%, rgba(97, 244, 255, 0.2), transparent 18rem),
+        radial-gradient(circle at 78% 64%, rgba(255, 107, 122, 0.08), transparent 15rem),
+        linear-gradient(145deg, rgba(70, 128, 148, 0.42), rgba(31, 70, 93, 0.34));
     backdrop-filter: blur(20px);
 }
 
@@ -314,6 +314,39 @@ html[data-theme="light"] .kinetic-stage::after {
             transparent 2px 18px
         );
     opacity: 0.55;
+}
+
+.map-chip,
+.map-float,
+.map-name-plate {
+    border: 1px solid rgba(244, 247, 255, 0.12);
+    color: var(--cyan);
+    background: rgba(5, 7, 13, 0.24);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(18px) saturate(1.12);
+}
+
+.map-float {
+    color: rgba(244, 247, 255, 0.72);
+}
+
+html[data-theme="light"] .map-chip,
+html[data-theme="light"] .map-float,
+html[data-theme="light"] .map-name-plate {
+    border-color: rgba(12, 55, 67, 0.16);
+    color: #17384a;
+    background:
+        linear-gradient(135deg, rgba(246, 251, 249, 0.76), rgba(196, 224, 221, 0.48));
+    box-shadow: 0 18px 46px rgba(38, 71, 75, 0.16);
+    backdrop-filter: blur(16px) saturate(1.04);
+}
+
+html[data-theme="light"] .map-chip {
+    color: var(--cyan);
+}
+
+html[data-theme="light"] .map-name-plate p:first-child {
+    color: #102033;
 }
 
 .route-line {
